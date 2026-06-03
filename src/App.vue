@@ -1,12 +1,17 @@
-<template>
-  <MenuNavegacion />
-  <main>
-    <router-view />
-  </main>
-</template>
-
 <script setup>
-import MenuNavegacion from './components/MenuComponent.vue'
+import MenuComponent from './components/MenuComponent.vue'
 </script>
 
-<style scoped></style>
+<template>
+    <Encabezado />
+      <MenuNavegacion />
+        <main>
+            <router-view />
+              </main>
+              </template>
+
+              <script setup>
+              import Encabezado from './Encabezado.vue'
+              import MenuNavegacion from './MenuNavegacion.vue'
+              </script>
+              
