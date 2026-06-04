@@ -1,3 +1,4 @@
+ 6-crear-página-de-error-404
 <template>
   <div class="home-container p-d-flex p-flex-column p-ai-center p-jc-center">
     <div class="home-content p-text-center">
@@ -208,3 +209,16 @@ const showInfo = () => {
   }
 }
 </style>
+
+<script setup lang="ts"></script>
+
+<template>
+  <h1>You did it!</h1>
+  <p>
+    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
+    documentation
+  </p>
+</template>
+
+<style scoped></style>
+ main
