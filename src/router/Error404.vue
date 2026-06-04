@@ -1,37 +1,183 @@
 <template>
-  <div class="error-page">
-    <h1>Error 404</h1>
-    <p>Página no encontrada. El enlace que sigues puede estar roto o la página puede haber sido eliminada.</p>
-    <router-link to="/" class="btn">Volver al Inicio</router-link>
+  <div class="error-layout">
+    <div class="error-content">
+      <div class="error-header">
+        <i class="pi pi-exclamation-circle error-icon"></i>
+      </div>
+      
+      <h1 class="error-code">404</h1>
+      
+      <h2 class="error-title">Página No Encontrada</h2>
+      
+      <p class="error-description">
+        Lo sentimos, la página que buscas no existe. El enlace puede estar roto o la página puede haber sido eliminada.
+      </p>
+      
+      <div class="error-actions">
+        <Button 
+          label="Volver al Inicio" 
+          icon="pi pi-arrow-left"
+          @click="goHome"
+          class="p-button-lg"
+        />
+        
+        <Button 
+          label="Contactar Soporte" 
+          icon="pi pi-envelope"
+          severity="secondary"
+          @click="contactSupport"
+          class="p-button-lg p-button-outlined"
+        />
+      </div>
+      
+      <div class="error-footer">
+        <p class="footer-text">¿Necesitas ayuda? <a href="#" class="footer-link">Visita nuestro centro de ayuda</a></p>
+      </div>
+    </div>
   </div>
 </template>
 
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+import Button from 'primevue/button'
+
+const router = useRouter()
+
+const goHome = () => {
+  router.push('/')
+}
+
+const contactSupport = () => {
+  console.log('Contactando soporte...')
+}
+</script>
+
 <style scoped>
-.error-page {
+.error-layout {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.error-content {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   text-align: center;
-  background-color: var(--fondo);
-  color: var(--texto);
-  font-family: sans-serif;
+  max-width: 600px;
+  width: 100%;
+  animation: slideUp 0.5s ease-out;
 }
 
-h1 {
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.error-header {
+  margin-bottom: 2rem;
+}
+
+.error-icon {
   font-size: 4rem;
-  margin-bottom: 0.5rem;
-  color: #e74c3c; /* Un rojo suave para indicar error */
+  color: #667eea;
+  display: inline-block;
 }
 
-.btn {
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #42b883;
-  color: white;
+.error-code {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+}
+
+.error-title {
+  font-size: 1.75rem;
+  color: #333;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.error-description {
+  font-size: 1rem;
+  color: #666;
+  margin: 1.5rem 0 2.5rem 0;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-actions :deep(.p-button) {
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 600px) {
+  .error-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .error-code {
+    font-size: 3.5rem;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+  }
+
+  .error-actions :deep(.p-button) {
+    width: 100%;
+  }
+}
+
+.error-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
+
+.footer-link {
+  color: #667eea;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
 }
 </style>
