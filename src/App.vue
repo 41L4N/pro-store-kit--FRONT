@@ -1,11 +1,12 @@
 <template>
-    <Encabezado />
-      <main>
-          <router-view />
-            </main>
-            </template>
+  <Encabezado />
+  <main>
+    <router-view />
+  </main>
+</template>
 
-            <script setup>
-            import Encabezado from './Encabezado.vue'
-            </script>
-            
+<script setup>
+import Encabezado from './Encabezado.vue'
+</script>
+
+<style scoped></style>
