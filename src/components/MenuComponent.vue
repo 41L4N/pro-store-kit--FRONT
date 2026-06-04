@@ -8,6 +8,10 @@
         Pro<span>Store</span>
       </div>
 
+      <nav class="navegacion">
+        <MenuComponent />
+      </nav>
+
       <div class="acciones">
         <Button icon="pi pi-heart" text rounded aria-label="Favoritos" />
         <Button icon="pi pi-shopping-cart" text rounded aria-label="Carrito" badge="3" />
@@ -19,6 +23,7 @@
 
 <script setup>
 import Button from 'primevue/button'
+import MenuComponent from './components/MenuComponent.vue'
 </script>
 
 <style scoped>
@@ -69,4 +74,4 @@ import Button from 'primevue/button'
   align-items: center;
   gap: 4px;
 }
-</style>
+</style> 
