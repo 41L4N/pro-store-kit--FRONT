@@ -1,8 +1,12 @@
 <template>
-  <router-view />
+  <Encabezado />
+  <main>
+    <router-view />
+  </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import Encabezado from './Encabezado.vue'
 </script>
 
 <style scoped></style>
