@@ -6,8 +6,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Error404,
+      component: () => import('../Home.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
